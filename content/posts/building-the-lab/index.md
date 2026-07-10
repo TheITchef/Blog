@@ -8,7 +8,7 @@ summary: "A tour of the theITchef lab — the hardware, how I keep it running, a
 
 Some people put a nice plant in the corner of the living room. I put a 42U server rack there. My interior design philosophy is best described as "enterprise data centre, but cosy."
 
-I've spent 10+ years doing hands-on IT — L2/L3 support, sysadmin work, Windows Server and Active Directory, Cisco networking, keeping real environments running for real users who very much notice when things stop working. The lab is where I keep those instincts sharp and break things on purpose so I'm faster when they break by accident. Also, admittedly, because the sound of servers spinning up is oddly comforting to a certain kind of person. You know if you're that kind of person.And most probably,you also own a good pair of headphones (yes Senheiser,I men you) along with Spotify.
+I've spent 10+ years doing hands-on IT — L2/L3 support, sysadmin work, Windows Server and Active Directory, Cisco networking, keeping real environments running for real users who very much notice when things stop working. The lab is where I keep those instincts sharp and break things on purpose so I'm faster when they break by accident. Also, admittedly, because the sound of servers spinning up is oddly comforting to a certain kind of person. You know if you're that kind of person.And most probably,you also own a good pair of headphones (yes Sennheiser,I am talking to you) along with Spotify.
 
 This isn't a spec sheet. It's a tour of what I run, how I keep it alive, and the operational habits behind it.
 
@@ -16,7 +16,7 @@ This isn't a spec sheet. It's a tour of what I run, how I keep it alive, and the
 
 ![The compute layer: Dell PowerEdge and HPE ProLiant servers in the rack](Compute.jpg)
 
-**itc-uvy-dc01 — Dell PowerEdge T330.** The domain controller, and the most disciplined box in the rack. Windows Server 2025 on bare metal — AD DS, DNS, DHCP — and exactly one job. This is the machine I treat like production, because in every environment I've supported, when identity or DNS goes sideways, the ticket queue lights up like a Christmas tree. So the DC runs on its own hardware,boring, and reliable. Boring is a compliment here.
+**itc-uvy-dc01 — Dell PowerEdge T330.** The domain controller, and the most disciplined box in the rack. Windows Server 2025 on bare metal — AD DS, DNS, DHCP — and exactly one job. This is the machine I treat like production, because in every environment I've supported, when identity or DNS goes sideways, the ticket queue lights up like a Christmas tree. So the DC runs on its own hardware, boring, and reliable. Boring is a compliment here.
 
 **itc-uvy-esxi01 — Dell PowerEdge R620.** The VMware host: dual Xeon, 192GB RAM, ESXi 8.0. This is where most of the VM estate lives — the Windows and Linux servers I use to practise the actual day job: user and group management, GPO troubleshooting, patching, breaking DNS and fixing it again. R620s are the second-hand workhorse of home labs everywhere, and for good reason.
 
