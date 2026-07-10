@@ -1,0 +1,4 @@
+baseURL = 'https://blog.theitchef.com/'
+locale = 'en-us'
+title = 'theITchef'
+theme = 'PaperMod'

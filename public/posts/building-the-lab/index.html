@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Yes, That&#39;s a 42U Server Rack in My Living Room. Let Me Explain. | theITchef</title>
+<meta name="keywords" content="homelab, sysadmin, networking, windows-server, vmware, cisco">
+<meta name="description" content="A tour of the theITchef lab — the hardware, how I keep it running, and the day-to-day operations habits behind it. Interior design tips not included.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/building-the-lab/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/building-the-lab/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="theITchef (Alt + H)">theITchef</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Yes, That&#39;s a 42U Server Rack in My Living Room. Let Me Explain.
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-10 00:00:00 +0000 UTC'>July 10, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Some people put a nice plant in the corner of the living room. I put a 42U server rack there. My interior design philosophy is best described as &ldquo;enterprise data centre, but cosy.&rdquo;</p>
+<p>I&rsquo;ve spent 10+ years doing hands-on IT — L2/L3 support, sysadmin work, Windows Server and Active Directory, Cisco networking, keeping real environments running for real users who very much notice when things stop working. The lab is where I keep those instincts sharp and break things on purpose so I&rsquo;m faster when they break by accident. Also, admittedly, because the sound of servers spinning up is oddly comforting to a certain kind of person. You know if you&rsquo;re that kind of person.And most probably,you also own a good pair of headphones (yes Senheiser,I men you) along with Spotify.</p>
+<p>This isn&rsquo;t a spec sheet. It&rsquo;s a tour of what I run, how I keep it alive, and the operational habits behind it.</p>
+<h2 id="the-compute-layer-four-servers-four-jobs">The compute layer: four servers, four jobs<a hidden class="anchor" aria-hidden="true" href="#the-compute-layer-four-servers-four-jobs">#</a></h2>
+<p><img alt="The compute layer: Dell PowerEdge and HPE ProLiant servers in the rack" loading="lazy" src="/posts/building-the-lab/Compute.jpg"></p>
+<p><strong>itc-uvy-dc01 — Dell PowerEdge T330.</strong> The domain controller, and the most disciplined box in the rack. Windows Server 2025 on bare metal — AD DS, DNS, DHCP — and exactly one job. This is the machine I treat like production, because in every environment I&rsquo;ve supported, when identity or DNS goes sideways, the ticket queue lights up like a Christmas tree. So the DC runs on its own hardware,boring, and reliable. Boring is a compliment here.</p>
+<p><strong>itc-uvy-esxi01 — Dell PowerEdge R620.</strong> The VMware host: dual Xeon, 192GB RAM, ESXi 8.0. This is where most of the VM estate lives — the Windows and Linux servers I use to practise the actual day job: user and group management, GPO troubleshooting, patching, breaking DNS and fixing it again. R620s are the second-hand workhorse of home labs everywhere, and for good reason.</p>
+<p><strong>itc-uvy-esxi02 — an identical R620,</strong> currently kept as a spare / staging host. Having a second identical box is a luxury I lean on constantly: I can stand up a test scenario, wreck it, and rebuild without touching the environment I actually rely on. Anyone who has done change work knows the value of a place to fail safely.</p>
+<p><strong>itc-uvy-ms01 — HPE ProLiant DL360 Gen9.</strong> The Microsoft services host: Hyper-V on Windows Server 2025 Datacenter, 256GB of RAM. This is where the corporate-feeling estate lives — SCCM, WSUS, certificate services. 256GB because SCCM never travels alone; it brings a SQL Server and a large appetite. This box is my sandbox for the endpoint-management and patching work that made up a big chunk of my support career.</p>
+<h2 id="keeping-it-running-the-boring-habits-that-matter">Keeping it running: the boring habits that matter<a hidden class="anchor" aria-hidden="true" href="#keeping-it-running-the-boring-habits-that-matter">#</a></h2>
+<p>The hardware is the easy part. The reason the lab is useful is the operational discipline around it, which is exactly what L2/L3 and sysadmin work rewards:</p>
+<p><strong>Out-of-band management, taken seriously.</strong> Every iDRAC and iLO lives on a dedicated Cisco Catalyst 3560CG, physically separate from the data network. Why a whole switch just for management? Because one day I <em>will</em> fat-finger a trunk on the core switch — and when I do, I need to reach the servers&rsquo; lights-out management without a crash cart and a walk of shame. Anyone who has ever locked themselves out of a remote host mid-change felt that sentence in their soul. There&rsquo;s a reason &ldquo;console access&rdquo; is the first thing you check when a change goes wrong.</p>
+<p><strong>Separate admin workstations.</strong> Administration happens only from dedicated privileged access workstations. The machine that touches server management interfaces is not the same machine that browses the internet. It&rsquo;s a habit worth having whether you&rsquo;re supporting 10 servers or 10,000 endpoints.</p>
+<p><strong>Documentation before you need it.</strong> Every device is inventoried before it goes in the rack — model, controller, iLO/iDRAC details, rack position. Because troubleshooting at 2 a.m. is not the moment to be guessing which box has which RAID controller. If you&rsquo;ve ever inherited an undocumented environment, you already know why I&rsquo;m strict about this one.</p>
+<h2 id="the-network-the-part-i-enjoy-most">The network: the part I enjoy most<a hidden class="anchor" aria-hidden="true" href="#the-network-the-part-i-enjoy-most">#</a></h2>
+<p><img alt="The networking layer: Cisco Catalyst core, 891F edge, and the OOB management switch" loading="lazy" src="/posts/building-the-lab/Network.jpg"></p>
+<p>The switching layer is the closest thing to production in the whole lab, and honestly my favourite part to work on. A Cisco Catalyst 3850-48 as the L3 core, a Cisco 891F at the edge, and the 3560CG handling out-of-band. This is where I practise VLANs, trunking, inter-VLAN routing, and the specific satisfaction of tracing a connectivity problem down to one mislabelled port.</p>
+<p>Networking troubleshooting is a muscle. If you don&rsquo;t use it, it atrophies. The lab is my gym.</p>
+<h2 id="a-note-on-the-aesthetic">A note on the aesthetic<a hidden class="anchor" aria-hidden="true" href="#a-note-on-the-aesthetic">#</a></h2>
+<p>Do I recommend a 42U rack as living room decor? Legally I have to say no. The power bill has opinions, the fans have opinions, and guests occasionally have opinions. But there&rsquo;s something to be said for a hobby that doubles as a permanent, always-on practice environment for the exact skills your career runs on. It hums. It blinks. It has taught me more than any course.</p>
+<p>Next post: the 7-VLAN architecture, and why my patch panel has exactly one rule. (The rule is good. The rule has survived more scrutiny than most of my furniture arrangements.)</p>
+<hr>
+<p><em>Full lab documentation lives on <a href="https://github.com/TheITchef/IHPC">GitHub</a>. I&rsquo;m an IT operations, systems, and networking engineer based in Stockholm. Find me on <a href="https://www.linkedin.com/in/ioannis-mintzivyris-a1b77873/">LinkedIn</a>.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
+      <li><a href="http://localhost:1313/tags/sysadmin/">Sysadmin</a></li>
+      <li><a href="http://localhost:1313/tags/networking/">Networking</a></li>
+      <li><a href="http://localhost:1313/tags/windows-server/">Windows-Server</a></li>
+      <li><a href="http://localhost:1313/tags/vmware/">Vmware</a></li>
+      <li><a href="http://localhost:1313/tags/cisco/">Cisco</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">theITchef</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
