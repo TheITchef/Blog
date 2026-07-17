@@ -1,0 +1,17 @@
+@"
+# Hugo build output
+public/
+resources/_gen/
+
+# Hugo cache and lock
+.hugo_build.lock
+hugo_stats.json
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+"@ | Set-Content -Path .gitignore -Encoding UTF8
