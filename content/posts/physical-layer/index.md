@@ -31,3 +31,6 @@ Which is, I think, worth writing down rather than hiding. A living project runs 
 No IP addresses assigned yet. No VLANs. Those come next, and they'll come faster because the foundation underneath them is now documented rather than assumed.
 
 The rack still hums. It just hums with better paperwork.
+
+
+*Full lab documentation lives on [GitHub](https://github.com/TheITchef/IHPC). I'm an IT operations, systems, and networking engineer based in Stockholm. Find me on [LinkedIn](https://www.linkedin.com/in/ioannis-mintzivyris-a1b77873/).*

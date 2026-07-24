@@ -40,3 +40,6 @@ There's still an open item in the repo: an old, unlabelled bundle of uncommitted
 And that's the whole point. A polished blog would show you a spotless repo. A living project shows you the drawer of loose cables — and then cleans it out with a documented procedure.
 
 The servers get their turn. And when they do, every change from day one will land on a foundation that can explain itself. Worth a quiet week. The rack agrees.
+
+
+*Full lab documentation lives on [GitHub](https://github.com/TheITchef/IHPC). I'm an IT operations, systems, and networking engineer based in Stockholm. Find me on [LinkedIn](https://www.linkedin.com/in/ioannis-mintzivyris-a1b77873/).*
